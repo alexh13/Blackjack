@@ -25,53 +25,52 @@ int getRandom() {
 int main() {
     srand(static_cast<unsigned>(time(nullptr)));
 
-    int currentCards, cardTotal;
-    int firstRandom = getRandom(), secondRandom = getRandom(), loopRandom = getRandom();
+
+    // declared ints
+    int currentCards, firstRandom = getRandom(), secondRandom = getRandom();
     string playAgain, newCard, newGame;
 
-    // Player score
+
+    // Player initial score
     cout << "First Cards: " << firstRandom << ", " << secondRandom << endl;
     currentCards = firstRandom + secondRandom;
     cout << "Total: " << currentCards << endl;
 
-    // Ask user for input
+
+    // Ask user for a new card
     cout << "Do you want another card? (y/n): " << endl;
     cin >> newCard;
+
 
     // loop for getting another card
     while (newCard == "y" && currentCards < 21) {
         int newNum = getRandom();
-        
         cout << "Card: " << newNum << endl;
         cout << "Total: " << currentCards + newNum << endl;
+        currentCards = currentCards + newNum; // update currentCards int with new total
+        if (currentCards > 21) {
+            cout << "Bust!" << endl;
+            break;
+        }
+        else if (currentCards == 21) {
+            cout << "Win!" << endl;
+            break;
+        }
         cout << "Do you want another card? (y/n): " << endl;
         cin >> newCard;
     }
 
-    cardTotal = currentCards + loopRandom;
 
-    // loop for ending game
-    while (newCard == "n") {
-        if (cardTotal > 21) {
-            cout << "Bust!" << endl;
-        }
-        else if (cardTotal == 21) {
-            cout << "Win!" << endl;
-        }
-        else if (cardTotal < 21) {
-            cout << "Thanks for playing" << endl;
-        }
-        break;
-    }
-
-    // new game
+    // new game option
     cout << "Would you like to play again? (y/n): " << endl;
     cin >> playAgain;
     if (playAgain == "y") {
-         cout << "some text:" << endl;
-
+         return main();
+    }
+    else {
+        cout << "Thanks for playing!" << endl;
     }
 
-    return 0; 
+    return 0;
 }
 
