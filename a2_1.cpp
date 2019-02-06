@@ -26,7 +26,7 @@ int main() {
     srand(static_cast<unsigned>(time(nullptr)));
 
 
-    // declared ints
+    // declared ints & strings
     int currentCards, firstRandom = getRandom(), secondRandom = getRandom();
     string playAgain, newCard, newGame;
 
@@ -74,3 +74,19 @@ int main() {
     return 0;
 }
 
+/* Output:
+First Cards: 6, 8
+Total: 14
+Do you want another card? (y/n):
+y
+Card: 2
+Total: 16
+Do you want another card? (y/n):
+y
+Card: 10
+Total: 26
+Bust!
+Would you like to play again? (y/n):
+n
+Thanks for playing!
+ */
