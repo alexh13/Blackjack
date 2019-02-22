@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+const int TARGET_SCORE = 21;
+const int NUM_UNIQUE_CARD_VALUES = 10;
+const int LOWEST_CARD_VALUE = 1;
+
+int main() {
+    srand(time(0));
+    int card1;
+    int card2;
+    int total;
+    char anotherCardResponse;
+    char playAgainResponse;
+
+    do {
+        card1 = rand() % NUM_UNIQUE_CARD_VALUES + LOWEST_CARD_VALUE;
+        card2 = rand() % NUM_UNIQUE_CARD_VALUES + LOWEST_CARD_VALUE;
+        total = card1 + card2;
+
+        cout << "First cards: " << card1 << ", " << card2 << endl;
+        cout << "Total: " << total << endl;
+        cout << "Do you want another card (y/n)? ";
+        cin  >> anotherCardResponse;
+        while (tolower(anotherCardResponse) != 'n' && total < TARGET_SCORE) {
+            int card = rand() % NUM_UNIQUE_CARD_VALUES + LOWEST_CARD_VALUE;
+            total = total + card;
+            cout << "Card: " << card << endl;
+            cout << "Total: " << total << endl;
+            if (total < TARGET_SCORE) {
+                cout << "Do you want another card (y/n)? ";
+                cin >> anotherCardResponse;
+            }
+        }
+
+        if (total > TARGET_SCORE) {
+            cout << "Bust." << endl;
+        } else if (total == TARGET_SCORE){
+            cout << "Congratulations!" << endl;
+        }
+
+        cout << "Would you like to play again (y/n)? ";
+        cin >> playAgainResponse;
+    } while (tolower(playAgainResponse) != 'n');
+}
+

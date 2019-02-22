@@ -6,15 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/Users/alexhughes/CLionProjects/Assignment-2/a2_1.cpp
-iostream
--
-string
--
-cstdlib
--
-iomanip
--
-ctime
--
-

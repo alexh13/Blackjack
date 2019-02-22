@@ -1,9 +1,20 @@
 /*
-Alex Hughes
-2/3/2019
+    Alex Hughes
+    2/3/2019
+    Assignment 2.1
 
-Assignment 2.1
-A command line game that plays a simple version of blackjack.
+    This program simulates a simple game of blackjack. The program begins by
+    outputting two numbers between 1-10 that represent card numbers and labeled
+    with "Card:". The numbers are added together and printed with the label "Total"
+    to represent the total of the hand. The user is given the choice of drawing
+    another card (user enters 'y'), or ending their turn (user enters 'n'). The
+    user may enter their response in lowercase or uppercase. Drawing another card
+    will result in another randomly generated number between 1-10 that is added
+    to the existing total. If the total of the hand equals or exceeds 21, the program
+    will end the turn, outputting "Congratulations!" if the hand equals 21, other-
+    wise outputting "BUST".  When the turn is over, the user is asked if they want
+    to play again. Once the user has entered 'n' to quit, the program ends without
+    further output.
  */
 
 
